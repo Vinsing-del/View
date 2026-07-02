@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1 - Flight DFD</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f1f5f9;
+    padding:20px;
+}
+.container{max-width:1600px;margin:auto;}
+
+.header{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.tab-btn{
+    padding:12px 28px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#e2e8f0;
+    color:black;
+    font-weight:600;
+}
+
+.tab-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>✈ Flight Booking System</h1>
+</div>
+
+<!-- NAVIGATION -->
+<div class="tabs">
+    <a href="index.html" class="tab-btn">Level 0</a>
+    <a href="level1.html" class="tab-btn active">Level 1</a>
+</div>
+
+<div class="card">
+<div class="mermaid">
+flowchart TD
+User((User))
+DB[(Flight DB)]
+Payment[Payment Gateway]
+Airline[(Airline System)]
+Notif[Email/SMS]
+
+P1[Search Flights]
+P2[Display Options]
+P3[Review Booking]
+P4[Authentication]
+P5[Passenger Details]
+P6[Payment]
+P7[Ticket Generate]
+P8[Check-in]
+
+User --> P1
+P1 <--> DB
+P2 --> User
+P3 --> P4
+P6 --> Payment
+P7 --> Notif
+P7 --> Airline
+</div>
+</div>
+
+</div>
+
+<script>
+mermaid.initialize({ startOnLoad:true });
+</script>
+
+</body>
+</html>
